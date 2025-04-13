@@ -8,6 +8,17 @@ void mostrarNombres(char *persona[], int n){
         printf("%s", persona[i]);
     }
 }
+char *buscarNombre(char *persona[], int n, int indice){
+    for (int i = 0; i < n; i++)
+    {
+        if (i == indice)
+        {
+            return persona[i];
+        }
+        
+    }
+    return NULL;
+}
 char *BuscarNombreClave(char *persona[], int n, char *nombre){
     for (int i = 0; i < n; i++)
     {
