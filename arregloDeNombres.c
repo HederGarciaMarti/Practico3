@@ -15,8 +15,14 @@ int main(){
     }
 
     mostrarNombres(v, 5);
-
-
+    char *resultadoNombre = BuscarNombreClave(v, 5, "lucas");
+    if (resultadoNombre == NULL)
+    {
+        printf("No se encontro el nombre:\n");
+    }else{
+        printf("El nombre encontrado es: %s\n", resultadoNombre);
+    }
+    
     liberarMemoria(v, 5);
     return 0;
 }
