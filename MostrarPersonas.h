@@ -8,7 +8,7 @@ void mostrarNombres(char *persona[], int n){
         printf("%s", persona[i]);
     }
 }
-char *buscarNombre(char *persona[], int n, int indice){
+char *BuscaNombrePorId(char *persona[], int n, int indice){
     for (int i = 0; i < n; i++)
     {
         if (i == indice)
@@ -19,7 +19,7 @@ char *buscarNombre(char *persona[], int n, int indice){
     }
     return NULL;
 }
-char *BuscarNombreClave(char *persona[], int n, char *nombre){
+char * BuscaNombrePorPalabra(char *persona[], int n, char *nombre){
     for (int i = 0; i < n; i++)
     {
         if (strstr(persona[i], nombre))
