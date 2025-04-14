@@ -20,6 +20,7 @@ void cargarDatos(Cliente *clientes, int n);
 void mostrarClientes(Cliente *clientes, int n);
 float costoProducto(Producto produc);
 void totalPagar(Cliente *clientes, int n);
+void liberarMemoria(Cliente *clientes, int n);
 int main(){
     int cantidad_clientes;
     printf("Ingrese la cantidad de clientes entre 1 a 5\n");
@@ -29,6 +30,7 @@ int main(){
     cargarDatos(clientes, cantidad_clientes);
     mostrarClientes(clientes, cantidad_clientes);
     totalPagar(clientes, cantidad_clientes);
+    liberarMemoria(clientes, cantidad_clientes);
     
 }
 void cargarDatos(Cliente *clientes, int n){
@@ -89,4 +91,12 @@ void totalPagar(Cliente *clientes, int n){
         suma = 0;
     }
     
+}
+void liberarMemoria(Cliente *clientes, int n){
+    for (int i = 0; i < n; i++)
+    {
+        free(clientes[i].NombreCliente); 
+        free(clientes[i].Productos); 
+    }
+    free(clientes);
 }
