@@ -5,7 +5,7 @@
 void mostrarNombres(char *persona[], int n){
     printf("\nNombres ingresados:\n");
     for (int i = 0; i < n; i++) {
-        printf("%s", persona[i]);
+        printf("%d- %s", i, persona[i]);
     }
 }
 char *BuscaNombrePorId(char *persona[], int n, int indice){
