@@ -18,6 +18,8 @@ Producto *Productos; //El tamaño de este arreglo depende de la variable
 }typedef Cliente;
 void cargarDatos(Cliente *clientes, int n);
 void mostrarClientes(Cliente *clientes, int n);
+float costoProducto(Producto produc);
+void totalPagar(Cliente *clientes, int n);
 int main(){
     int cantidad_clientes;
     printf("Ingrese la cantidad de clientes entre 1 a 5\n");
@@ -26,7 +28,8 @@ int main(){
     Cliente *clientes = malloc(sizeof(Cliente)*cantidad_clientes);
     cargarDatos(clientes, cantidad_clientes);
     mostrarClientes(clientes, cantidad_clientes);
-
+    totalPagar(clientes, cantidad_clientes);
+    
 }
 void cargarDatos(Cliente *clientes, int n){
     char aux[40];
@@ -65,4 +68,25 @@ void mostrarClientes(Cliente *clientes, int n) {
             printf("\n");
         }
     }
+}
+float costoProducto(Producto produc){
+    float result;
+    result = produc.Cantidad * produc.PrecioUnitario;
+    return result;
+}
+void totalPagar(Cliente *clientes, int n){
+    float result, suma = 0;
+    for (int i = 0; i < n; i++)
+    {
+        printf("\t Cliente numero %d\n", i + 1);
+        for (int j = 0; j < clientes[i].CantidadProductosAPedir; j++)
+        {
+            Producto p = clientes[i].Productos[j];
+            result = costoProducto(p);
+            suma = suma + result;
+        }
+        printf("Total a pagar: %.2f\n", suma);
+        suma = 0;
+    }
+    
 }
